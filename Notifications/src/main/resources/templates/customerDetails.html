@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Customer Details</h1>
+
+    <div th:if="${customer != null}" class="card">
+        <div class="card-body">
+            <h5 class="card-title">Customer Information</h5>
+            <p><strong>ID:</strong> <span th:text="${customer.id}"></span></p>
+            <p><strong>First Name:</strong> <span th:text="${customer.firstName}"></span></p>
+            <p><strong>Last Name:</strong> <span th:text="${customer.lastName}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${customer.email}"></span></p>
+            <p><strong>Phone:</strong> <span th:text="${customer.phone}"></span></p>
+            <p><strong>Street:</strong> <span th:text="${customer.street}"></span></p>
+            <p><strong>City:</strong> <span th:text="${customer.city}"></span></p>
+            <p><strong>Postal Code:</strong> <span th:text="${customer.postalCode}"></span></p>
+            <p><strong>Country:</strong> <span th:text="${customer.country}"></span></p>
+            <p><strong>Opt-in SMS:</strong> <span th:text="${customer.optInSMS} ? 'Yes' : 'No'"></span></p>
+            <p><strong>Opt-in Email:</strong> <span th:text="${customer.optInEmail} ? 'Yes' : 'No'"></span></p>
+            <p><strong>Opt-in Promotional:</strong> <span th:text="${customer.optInPromotional} ? 'Yes' : 'No'"></span></p>
+            <!-- Delete Button -->
+            <form th:action="@{/admin/customers/delete/{id}(id=${customer.id})}" method="post"
+                  onsubmit="return confirm('Are you sure you want to delete this customer?');">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div th:if="${error != null}" class="alert alert-danger" role="alert">
+        <span th:text="${error}"></span>
+    </div>
+
+    <!-- Correct Back Button -->
+    <a th:href="@{/admin/customers/search}" class="btn btn-secondary mt-3">Back to Customer List</a>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

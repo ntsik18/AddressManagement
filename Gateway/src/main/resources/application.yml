@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: Gateway
+  cloud:
+    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+      routes:
+        - id: Notifications
+          uri: lb:http://NOTIFICATIONS
+          predicates:
+            - Path=/notifications/**
+  security:
+    oauth2:
+      client:
+        registration:
+          my-client:
+            client-id: addressManagement-service
+            client-secret: hpfayVdtYa8T9HlzQAelpr9RDkR7vcwK
+            scope: openid,profile,email
+            redirect-uri: "http://localhost:8081/login/oauth2/code/addressManagement-service"
+        provider:
+          my-client:
+            issuer-uri: "http://localhost:9090/realms/micro-service"
+            authorization-uri: "http://localhost:9090/realms/micro-service/protocol/openid-connect/auth"
+            token-uri: "http://localhost:9090/realms/micro-service/protocol/openid-connect/token"
+            user-info-uri: "http://localhost:9090/realms/micro-service/protocol/openid-connect/userinfo"
+
+
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:9090/realms/micro-service"
+
+server:
+  port: 8081

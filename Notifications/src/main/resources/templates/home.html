@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Admin Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 20px;
+            margin-left: 5px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+        .nav-link {
+            margin-right: 15px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .filter-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${title}">Admin Home Page</h1>
+
+<!--    <nav class="nav">-->
+<!--        <a class="nav-link" th:href="@{/admin/users}">Manage Users</a>-->
+<!--        <a class="nav-link" th:href="@{/admin/notifications}">Manage Notifications</a>-->
+<!--        <a class="nav-link" th:href="@{/admin/settings}">Settings</a>-->
+<!--    </nav>-->
+
+    <hr>
+
+    <h2>Welcome, Admin!</h2>
+    <p>This is your dashboard where you can manage users, notifications, and settings.</p>
+
+    <!-- Search and Filter Users Section -->
+    <div class="search-container mt-4">
+        <h4>Search and Filter Users</h4>
+        <form th:action="@{/admin/customers/search}" method="get">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First Name" name="firstName">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Last Name" name="lastName">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Email" name="email">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Phone" name="phone">
+                </div>
+            </div>
+
+            <!-- Filter Preferences Section -->
+            <div class="filter-container mt-4">
+                <h5>Filter by Preferences</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="optInSMS" id="optInSMS" value="true">
+                    <label class="form-check-label" for="optInSMS">Opt-In for SMS</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="optInEmail" id="optInEmail" value="true">
+                    <label class="form-check-label" for="optInEmail">Opt-In for Email</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="optInPromotional" id="optInPromotional" value="true">
+                    <label class="form-check-label" for="optInPromotional">Opt-In for Promotional</label>
+                </div>
+            </div>
+
+            <button class="btn btn-primary mt-3" type="submit">Search</button>
+        </form>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+firstName,lastName,email,phone,optInSMS,optInEmail,optInPromotional
+Alice,Johnson,alice.johnson@example.com,+1234567890,true,true,false
+Bob,Smith,bob.smith@example.com,+0987654321,true,false,true
+Carol,Taylor,carol.taylor@example.com,+1230987654,false,true,false
+David,Wilson,david.wilson@example.com,+3216549870,true,true,true
+Emma,Moore,emma.moore@example.com,+6547893210,false,false,true
+Frank,Brown,frank.brown@example.com,+7896541230,true,true,false
+Grace,Jones,grace.jones@example.com,+8529637410,false,true,true
+Hannah,Martin,hannah.martin@example.com,+9632587410,true,false,false
+Ian,Walker,ian.walker@example.com,+7418529630,true,true,true
+Jack,White,jack.white@example.com,+9517538520,false,true,false
