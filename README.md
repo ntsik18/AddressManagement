@@ -84,6 +84,8 @@ In case you change the Keycloak configuration or need to set up the realm quickl
 3. Use the Import option to upload the `keycloakFinal.json` file.
 
 This will set up the realm with the predefined clients, roles, and configurations. 
+> **Important**: Please make sure you set up the realm correctly so OAuth2 security configuration under Gateway works properly.
+
 ### Running the Project
 
 Once the project starts, please run the following endpoint to insert batch data into the database:
@@ -92,5 +94,5 @@ Once the project starts, please run the following endpoint to insert batch data 
 If you want to access the project without OAuth2 security, use the following endpoint:
 - **Without OAuth2 Security**: `http://localhost:8080`
 
-> **Important**: Please make sure you set up the realm correctly so OAuth2 security configuration under Gateway works properly.
+
 
